@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ver mi QR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card centrado">
+        <h1>Ver mi QR</h1>
+        <p style="font-size:14px;color:#666;">Ingresa tu cedula para volver a ver tu codigo</p>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('buscar_qr') }}">
+            <label>Cedula</label>
+            <input type="text" name="cedula" required>
+            <button type="submit">Ver mi QR</button>
+        </form>
+
+        <a class="boton boton-secundario" href="{{ url_for('inicio') }}">Volver</a>
+    </div>
+</body>
+</html>

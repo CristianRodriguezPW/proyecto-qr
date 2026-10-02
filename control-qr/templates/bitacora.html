@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bitácora de movimientos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card" style="max-width:600px;">
+        <h1>Bitácora de movimientos</h1>
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Equipo</th>
+                <th>Movimiento</th>
+                <th>Fecha y hora</th>
+            </tr>
+            {% for m in movimientos %}
+            <tr>
+                <td>{{ m['nombre'] }}</td>
+                <td>{{ m['marca_equipo'] }} {{ m['color_equipo'] }}</td>
+                <td>{{ m['tipo'] }}</td>
+                <td>{{ m['fecha_hora'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a class="boton boton-secundario" href="{{ url_for('escaneo') }}">Volver a escanear</a>
+    </div>
+</body>
+</html>

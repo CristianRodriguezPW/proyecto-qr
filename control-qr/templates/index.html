@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Control QR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="contenedor-inicio">
+        <div class="encabezado-inicio">
+            <h1>Control QR</h1>
+            <p>Registro y control de acceso de visitantes y equipos</p>
+        </div>
+
+        <div class="grid-opciones">
+            <a class="opcion opcion-guardia" href="{{ url_for('escaneo') }}">
+                <span class="opcion-icono">📷</span>
+                <span class="opcion-titulo">Escanear / Leer QR</span>
+                <span class="opcion-desc">Para el guardia de seguridad: registra entradas y salidas</span>
+            </a>
+
+            <a class="opcion opcion-visitante" href="{{ url_for('buscar_qr') }}">
+                <span class="opcion-icono">🔍</span>
+                <span class="opcion-titulo">Ya tengo mi QR</span>
+                <span class="opcion-desc">Consulta el código QR que ya generaste</span>
+            </a>
+
+            <a class="opcion opcion-registro" href="{{ url_for('registro') }}">
+                <span class="opcion-icono">📝</span>
+                <span class="opcion-titulo">Es mi primera vez</span>
+                <span class="opcion-desc">Registra tu equipo y genera tu QR</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

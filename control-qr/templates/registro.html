@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro de visitante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Registro de visitante</h1>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('registro') }}">
+            <label>Cédula</label>
+            <input type="text" name="cedula" required>
+
+            <label>Nombre completo</label>
+            <input type="text" name="nombre" required>
+
+            <label>Correo (aquí llega tu QR)</label>
+            <input type="email" name="correo" required>
+
+            <label>Teléfono</label>
+            <input type="tel" name="telefono">
+
+            <div class="fila-doble">
+                <div>
+                    <label>Marca del equipo</label>
+                    <input type="text" name="marca" required>
+                </div>
+                <div>
+                    <label>Color</label>
+                    <input type="text" name="color" required>
+                </div>
+            </div>
+
+            <button type="submit">Generar mi QR</button>
+        </form>
+    </div>
+</body>
+</html>

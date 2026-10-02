@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tu código QR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card centrado">
+        <h1>Tu código está listo</h1>
+        <p>{{ usuario['nombre'] }} — {{ usuario['marca_equipo'] }} {{ usuario['color_equipo'] }}</p>
+
+        <img class="qr" src="{{ url_for('static', filename='qr/' + usuario['qr_uuid'] + '.png') }}" alt="Código QR">
+
+        <p style="font-size:13px;color:#666;">
+            Guarda una captura de este código. Lo vas a necesitar cada vez
+            que entres o salgas — no necesitas volver a registrarte.
+        </p>
+    </div>
+</body>
+</html>
